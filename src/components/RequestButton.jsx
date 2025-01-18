@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import MessageBox from "./MessageBox";
+import '../App.css'
+import ErrorMessageBox from "./ErrorMessageBox";
 
 
 const RequestButtonPage = () => {
+
+    const correctUrl = "https://catfact.ninja/facts";
+    const incorrectUrl = "https://catfact.ninja/factls";
+
     const [responseMessage, setResponseMessage] = useState("");
     const [error, setError] = useState(null);
     const fetchRequest = async (urlAddress) => {
@@ -23,9 +29,10 @@ const RequestButtonPage = () => {
 
     return (
         <div>
-             <button onClick={() => fetchRequest("https://catfact.ninja/facts")}  style={{marginRight: '20px', fontSize: '18px'}}>Правильный запрос к API</button> 
-             <button onClick={() => fetchRequest("https://catfact.ninja/factls")} style={{marginLeft:  '20px', fontSize: '18px'}}>Неправильный запрос к API</button> 
-             <MessageBox err={error} data = {responseMessage}/> 
+             <button onClick={() => fetchRequest(correctUrl)}  >Правильный запрос к API</button> 
+             <button onClick={() => fetchRequest(incorrectUrl)} >Неправильный запрос к API</button> 
+             <MessageBox data = {responseMessage}/> 
+             <ErrorMessageBox err={error}/> 
         </div>
     );
 };
