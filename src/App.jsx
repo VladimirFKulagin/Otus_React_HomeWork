@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import withAuth from './components/HOC/withAuth';
 
 const App = () => {
-  //const AuthHomePage = withAuth(HomePage); // Используем HOC здесь
 
   return (
     <div>

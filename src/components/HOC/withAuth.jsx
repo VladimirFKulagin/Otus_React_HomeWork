@@ -1,28 +1,13 @@
-
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
-
-// Определяем HOC
-const withAuth1 = (WrappedComponent) => {
-  const HOC = ({ isAuthenticated, ...props }) => {
-    
-    if (!isAuthenticated) {
-      return <Redirect to="/login" />;
+/*
+// Higher-Order Component
+function withLoading(Component) {
+  return function WrappedComponent({ ...props }) {
+    if (props.isAuth) {
+      return <div>Loading...</div>;
     }
-    return <WrappedComponent {...props} />;
+    return <Component {...props} />;
   };
+}
 
-  HOC.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired, 
-  };
-
-  // Подключаем HOC к Redux для получения состояния аутентификации
-  const mapStateToProps = (state) => ({
-    isAuthenticated: state.isAuthenticated,
-  });
-
-  return connect(mapStateToProps)(HOC);
-};
-
-export default withAuth1;
+export default withLoading;
+*/
